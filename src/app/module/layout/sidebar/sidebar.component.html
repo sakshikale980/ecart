@@ -1,10 +1,10 @@
 <div class="sidebar-content">
 
     <ul class="nav-list" *ngFor="let item of list">
-        <li class="nav-list-item">
+        <li class="nav-list-item" routerLink="{{item.route}}" style="cursor: pointer;">
             <i class="{{item.icon}}"></i>
             <span>
-                <a routerLink="{{item.route}}">{{item.name}}</a>
+                {{item.name}}
             </span>
         </li>
     </ul>

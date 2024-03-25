@@ -53,19 +53,19 @@ export class LoginComponent implements OnInit {
       const payload = {
         ...this.fv
       }
+
       localStorage.setItem('isLogin', 'true');
       localStorage.setItem('roleId', '1');
       // localStorage.setItem('roleId', '2');
       // localStorage.setItem('roleId', '3');
-
-
       this.router.navigate(['/dashboard']);
+
       this.loginService.login(payload).subscribe({
         next: (res: any) => {
           this.isLoading = false;
           localStorage.clear();
           localStorage.setItem('isLogin', 'true');
-          localStorage.setItem('roleId', '1');
+          localStorage.setItem('roleId', res.roleId);
           // localStorage.setItem('token', res.accessToken);
           // localStorage.setItem('refreshToken', res.refreshToken);
         },
