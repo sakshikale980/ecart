@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class layoutComponent implements OnInit {
   static children: any;
-  sideBarStatus: boolean = false;
+  sideBarStatus: boolean = true;
 
   constructor() { }
 

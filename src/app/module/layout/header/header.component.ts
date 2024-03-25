@@ -8,14 +8,11 @@ import { Component,EventEmitter,Output, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+
   @Output() sideBarToggled = new EventEmitter<boolean>();
   menuStatus:boolean = false;
-  
 
-
-  constructor() {
-   
-   }
+  constructor() {  }
 
   ngOnInit(): void {
   }
@@ -23,4 +20,11 @@ export class HeaderComponent implements OnInit {
        this.menuStatus =! this.menuStatus;
        this.sideBarToggled.emit(this.menuStatus)
   }
+
+  logOut() {
+    localStorage.removeItem('isLogin');
+    localStorage.clear();
+    localStorage.clear();
+  }
+
 }

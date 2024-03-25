@@ -1,5 +1,15 @@
 <div class="sidebar-content">
-    <ul class="nav-list">
+
+    <ul class="nav-list" *ngFor="let item of list">
+        <li class="nav-list-item">
+            <i class="{{item.icon}}"></i>
+            <span>
+                <a routerLink="{{item.route}}">{{item.name}}</a>
+            </span>
+        </li>
+    </ul>
+
+    <!-- <ul class="nav-list">
         <li class="nav-list-item">
             <i class="fa fa-users"></i>
             <span>
@@ -47,5 +57,5 @@
             </span>
         </li>
     </ul>
+     -->
 </div>
-

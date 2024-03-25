@@ -1,40 +1,78 @@
 <body class="main">
-	
+
 	<div class="container-fluid ">
 		<div class="row main-content bg-success text-center ">
 			<div class="col-md-4 text-center company__info">
-				<span class="company__logo"><img class="banner" src="/assets/images/logo-Assimilate.webp"/></span>
+				<span class="company__logo"><img class="banner" src="/assets/images/logo-Assimilate.webp" /></span>
 			</div>
 			<div class="col-md-8 col-xs-12 col-sm-12 login_form ">
 				<div class="container-fluid">
 					<div class="main">
-					<div class="row">
-						<form [formGroup]="loginForm">
-	
-							    <div class="row">
-							    <label  class="form-label"><b>*Email</b></label>
-								<input type="text" name="email" id="email" class="form-control"  formControlName="email" placeholder="Enter Email">
-                                 <span class="error" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>*Email is required </span>
-							</div>
-                            <br>
-							<div class="row">
-								<label  class="form-label"><b>*Password</b></label>
-						       <input type="text" name="password" id="password" formControlName="password" class="form-control" placeholder="Enter Password">
-							   <span class="error" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>*Password is required </span>
-							</div>
-							<br>
 						<div class="row">
-								<input type="submit" value="Login" class="btn" (click)="onSubmit()">
-							</div>
-						</form>
+							<form [formGroup]="loginForm">
+								<div class="row">
+									<label class="form-label"><b>Email</b><span
+											class="is__invalid-error">*</span></label>
+									<input type="text" name="email" id="email" class="form-control"
+										formControlName="email" placeholder="Enter Email">
+									<div *ngIf="submitted || fc['email'].touched && fc['email'].invalid"
+										class="is__invalid-error">
+										<div *ngIf="fc['email']?.errors?.['required']">
+											<small class="text-red">
+												<i class="fa fa-exclamation-triangle"></i>
+												<span>
+													Email is required.
+												</span>
+											</small>
+										</div>
+										<div *ngIf="fc['email']?.errors?.['pattern']">
+											<small class="text-red">
+												<i class="fa fa-exclamation-triangle"></i>
+												<span>
+													Enter valid email Id.
+												</span>
+											</small>
+										</div>
+									</div>
+								</div>
+								<br>
+								<div class="row mb-4">
+									<label class="form-label"><b>Password</b><span
+											class="is__invalid-error">*</span></label>
+									<input type="text" name="password" id="password" formControlName="password"
+										class="form-control" placeholder="Enter Password">
+									<div *ngIf="submitted || fc['password'].touched && fc['password'].invalid"
+										class="is__invalid-error">
+										<div *ngIf="fc['password']?.errors?.['required']">
+											<small class="text-red">
+												<i class="fa fa-exclamation-triangle"></i>
+												<span>
+													Password is required.
+												</span>
+											</small>
+										</div>
+										<div *ngIf="fc['password']?.errors?.['minlength']">
+											<small class="text-red">
+												<i class="fa fa-exclamation-triangle"></i>
+												<span>
+													Password must be six digit.
+												</span>
+											</small>
+										</div>
+									</div>
+								</div>
+								<br>
+								<div class="row">
+									<button class="btn" (click)="onSubmit()">
+										{{isLoading?'Loading...':'Login'}}
+									</button>
+								</div>
+							</form>
+						</div>
+
 					</div>
-					
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </body>
- 
-
-
