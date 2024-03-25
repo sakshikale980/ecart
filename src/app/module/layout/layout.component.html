@@ -1,1 +1,10 @@
-<router-outlet></router-outlet>
+<div class="container-fluid g-0">
+    <app-header (sideBarToggled)="sideBarStatus = $event;"></app-header>
+    <main>
+      <app-sidebar class="black-border" [sideBarStatus]="sideBarStatus"   [ngClass]="{'app-sidebar-open': sideBarStatus}"></app-sidebar>
+      <div class="display-area p-4" [ngClass]="{'display-area-shrink':sideBarStatus}">
+    <router-outlet></router-outlet>
+</div>
+</main>
+</div> 
+

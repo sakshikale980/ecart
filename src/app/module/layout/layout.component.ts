@@ -5,7 +5,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.css']
 })
-export class LayoutComponent implements OnInit {
+export class layoutComponent implements OnInit {
+  static children: any;
+  sideBarStatus: boolean = false;
 
   constructor() { }
 
